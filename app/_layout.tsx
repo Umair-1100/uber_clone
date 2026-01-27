@@ -2,15 +2,14 @@ import { Stack } from 'expo-router';
 import 'react-native-reanimated';
 
 
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
 
-export default function RootLayout() {
-
+const RootLayout = () => {
   return (
-      <Stack>
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-      </Stack>
+    <Stack>
+      <Stack.Screen name="index" options={{ headerShown: false }} />
+      <Stack.Screen name="(root)" options={{ headerShown: false }} />
+      <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+    </Stack>
   );
 }
+export default RootLayout;

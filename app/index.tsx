@@ -1,18 +1,8 @@
-import { Text, Button } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
-
+import { Redirect } from 'expo-router'
+import "../global.css"
 
 const Home = () => {
-
-  const handlePress = () => {
-     alert("Hello world");
-  }
-  return (
-    <SafeAreaView style={{paddingVertical: 10}}>
-      <Text>Hello World</Text>
-      <Button onPress={handlePress} title='Check kar' />
-    </SafeAreaView>
-  )
+  return (<Redirect href='/(auth)/welcome' />);
 }
 
 export default Home
