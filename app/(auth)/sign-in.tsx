@@ -5,7 +5,7 @@ import { icons, images } from '@/constants'
 import { Link } from 'expo-router'
 import { useState } from 'react'
 import { Image, ScrollView, Text, View } from 'react-native'
-
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 const SignIn = () => {
   const [form, setForm] = useState({
@@ -14,7 +14,14 @@ const SignIn = () => {
   })
 
   return (
-    <ScrollView className='flex-1 bg-white'>
+    // <ScrollView className='flex-1 bg-white'>
+     <KeyboardAwareScrollView
+          style={{ flex: 1, backgroundColor: "white" }}
+          contentContainerStyle={{ flexGrow: 1 }}
+          enableOnAndroid
+          extraScrollHeight={20}
+          keyboardShouldPersistTaps="handled"
+        >
       <View className='flex-1 bg-white'>
         <View className='relative w-full h-[250px]'>
           <Image source={images.signUpCar} className='z-0 w-full h-[250px]' />
@@ -36,7 +43,7 @@ const SignIn = () => {
 
           <OAuth />
 
-          <Link href={"/(auth)/sign-in"} className='font-normal text-base text-center text-neutral-400 my-10'>
+          <Link href={"/(auth)/sign-up"} className='font-normal text-base text-center text-neutral-400 my-10'>
             <Text>Don't have an account ? </Text>
             <Text className='text-primary'>Sign Up</Text>
           </Link>
@@ -45,7 +52,8 @@ const SignIn = () => {
         {/* Verfication Modal */}
 
       </View>
-    </ScrollView>
+    {/* </ScrollView> */}
+    </KeyboardAwareScrollView>
   )
 }
 

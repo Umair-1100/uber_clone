@@ -9,7 +9,7 @@ import Swiper from "react-native-swiper"
 const OnBoarding = () => {
   const swiperRef = useRef<Swiper>(null);
   const [activeIndex, setActvieIndex] = useState(0)
-  const isLastSlide = activeIndex === onboarding.length -1;
+  const isLastSlide = activeIndex === onboarding.length - 1;
 
   return (
     <SafeAreaView className='flex h-full  items-center justify-between bg-white'>
@@ -38,7 +38,7 @@ const OnBoarding = () => {
         )
         )}
       </Swiper>
-      <CustomButton onPress={() => isLastSlide ? router.replace('/(auth)/sign-up') : swiperRef.current?.scrollBy(1)} title={isLastSlide ? "Get Started" : "Next"} className={"mt-10 w-10/12"} />
+        <CustomButton onPress={() => isLastSlide ? router.replace('/(auth)/sign-up') : swiperRef.current?.scrollBy(1)} title={isLastSlide ? "Get Started" : "Next"} className={"mt-10 !w-[90%]"} />
     </SafeAreaView>
   )
 }

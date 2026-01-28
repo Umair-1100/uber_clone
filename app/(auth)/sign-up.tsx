@@ -4,7 +4,8 @@ import OAuth from '@/components/OAuth'
 import { icons, images } from '@/constants'
 import { Link } from 'expo-router'
 import { useState } from 'react'
-import { Image, ScrollView, Text, View } from 'react-native'
+import { Image, Keyboard, KeyboardAvoidingView, Platform, ScrollView, Text, TouchableWithoutFeedback, View } from 'react-native'
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 const SignUp = () => {
   const [form, setForm] = useState({
@@ -13,13 +14,24 @@ const SignUp = () => {
     password: ""
   })
 
-
   const onSignUpPress = async () => {
 
   }
 
   return (
-    <ScrollView className='flex-1 bg-white'>
+    // <KeyboardAvoidingView className="flex-1 bg-white" behavior={Platform.OS === "ios" ? "padding" : "height"}
+    //   keyboardVerticalOffset={Platform.OS === "ios" ? 80 : 0}>
+    //   <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+    //     <ScrollView className='flex-1 bg-white' contentContainerStyle={{ flexGrow: 1 }}
+    //       keyboardShouldPersistTaps="handled"
+    //       showsVerticalScrollIndicator={false}>
+    <KeyboardAwareScrollView
+      style={{ flex: 1, backgroundColor: "white" }}
+      contentContainerStyle={{ flexGrow: 1 }}
+      enableOnAndroid
+      extraScrollHeight={20}
+      keyboardShouldPersistTaps="handled"
+    >
       <View className='flex-1 bg-white'>
         <View className='relative w-full h-[250px]'>
           <Image source={images.signUpCar} className='z-0 w-full h-[250px]' />
@@ -55,7 +67,10 @@ const SignUp = () => {
         {/* Verfication Modal */}
 
       </View>
-    </ScrollView>
+    </KeyboardAwareScrollView>
+    //     </ScrollView>
+    //   </TouchableWithoutFeedback>
+    // </KeyboardAvoidingView>
   )
 }
 
