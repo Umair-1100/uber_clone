@@ -4,7 +4,7 @@ import OAuth from '@/components/OAuth'
 import { icons, images } from '@/constants'
 import { Link } from 'expo-router'
 import { useState } from 'react'
-import { Image, ScrollView, Text, View } from 'react-native'
+import { Image, Text, View } from 'react-native'
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 const SignIn = () => {

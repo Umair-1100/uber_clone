@@ -1,13 +1,9 @@
-import { Text, View } from 'react-native'
+import { Redirect } from 'expo-router';
 
 
-const _layout = () => {
-  return (
-    <View>
-      <Text>_layout</Text>
-    </View>
-  )
+const layout = () => {
+     return (<Redirect href='/(root)/(tabs)/home' />);  
 }
 
-export default _layout
+export default layout
 
